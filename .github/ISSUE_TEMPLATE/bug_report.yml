@@ -1,6 +1,6 @@
-name: "🐛 Bug report (WebSpatial program)"
+name: "Bug report (WebSpatial program)"
 description: File a reproducible bug encountered while building with WebSpatial
-title: "[BUG] <short summary>"
+title: ""
 labels: ["bug", "needs-triage"]
 assignees: []
 body:
@@ -8,7 +8,6 @@ body:
     attributes:
       value: |
         Thanks for filing a bug! Please fill in all required fields so triage is fast.
-        Tip: attach a minimal repro repo or branch if possible.
 
   - type: checkboxes
     id: duplicates
@@ -23,8 +22,7 @@ body:
     id: summary
     attributes:
       label: Summary
-      description: One/two sentences describing the bug.
-      placeholder: "Builder run crashes when launching on VisionOS simulator…"
+      placeholder: "One-two sentences describing the bug"
     validations:
       required: true
 
@@ -51,19 +49,13 @@ body:
     attributes:
       label: Minimal reproduction link
       description: Public repo/branch or zip link (ideally <100 lines diff).
-      placeholder: "https://github.com/<org>/<repo>/tree/<branch>"
+      placeholder: "https://github.com/<repo>/tree/<branch>"
 
   - type: textarea
     id: steps
     attributes:
       label: Steps to reproduce
-      description: Exact steps from a clean checkout.
-      value: |
-        1. git clone ... && npm ci
-        2. npm run dev   (and)   XR_ENV=avp npm run dev:xr
-        3. npx webspatial-builder run --base=http://localhost:5173
-        4. Open VisionOS Simulator …
-        5. Observe crash / error …
+      description: Exact steps to reproduce the bug. Attaching screenshots, console errors is insisted.
     validations:
       required: true
 
@@ -71,7 +63,6 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      placeholder: "App installs and opens a 2D window; model renders…"
     validations:
       required: true
 
@@ -79,7 +70,6 @@ body:
     id: actual
     attributes:
       label: Actual behavior
-      placeholder: "Builder prints ENOENT scandir /dist; Simulator shows black screen…"
     validations:
       required: true
 
@@ -90,8 +80,8 @@ body:
       options:
         - "S0 - Blocking (cannot proceed / demo-blocker)"
         - "S1 - Major (workaround exists but risky)"
-        - "S2 - Minor (annoying; no data loss)"
-        - "S3 - Cosmetic / Docs"
+        - "S2 - Minor (no data loss)"
+        - "S3 - Documentation"
     validations:
       required: true
 
@@ -120,9 +110,9 @@ body:
     attributes:
       label: WebSpatial & tooling versions
       description: Paste outputs so maintainers can reproduce exactly.
-      value: |
-        npm ls @webspatial/react-sdk @webspatial/core-sdk @webspatial/vite-plugin @webspatial/builder @webspatial/platform-visionos
-        npm ls vite vite-plugin-html react react-dom
+      placeholder: |
+        "npm ls @webspatial/react-sdk @webspatial/core-sdk @webspatial/vite-plugin @webspatial/builder @webspatial/platform-visionos
+        npm ls vite vite-plugin-html react react-dom"
     validations:
       required: true
 
@@ -143,54 +133,11 @@ body:
         - "Vision Pro device"
         - "VisionOS Simulator"
         - "Desktop browser (2D)"
-        - "Mobile Safari / PWA"
     validations:
       required: true
-
-  - type: input
-    id: simulator_version
-    attributes:
-      label: Simulator version (if applicable)
-      placeholder: "visionOS Simulator 2.x (device profile)"
-
-  - type: input
-    id: browser
-    attributes:
-      label: Browser & version (if 2D)
-      placeholder: "Safari TP r###, Chrome 140, etc."
-
-  - type: textarea
-    id: env_vars
-    attributes:
-      label: Relevant env vars / commands
-      description: Include any XR_ENV, __XR_ENV_BASE__, or builder flags used.
-      placeholder: |
-        XR_ENV=avp
-        __XR_ENV_BASE__=http://localhost:5174
-        npx webspatial-builder run --base=http://localhost:5173
-
-  - type: textarea
-    id: logs
-    attributes:
-      label: Logs & stack traces
-      description: Paste terminal output (builder, dev server) and console logs.
-    validations:
-      required: true
-
-  - type: textarea
-    id: screenshots
-    attributes:
-      label: Screenshots / screen recordings
-      description: Drag-and-drop images or short videos (Simulator/device captures).
 
   - type: textarea
     id: workarounds
     attributes:
       label: Tried workarounds
-      description: Things you tried (e.g., downgrade vite to v6, use --legacy-peer-deps, clean node_modules).
-
-  - type: textarea
-    id: extra
-    attributes:
-      label: Extra context
-      description: Anything else that might help (network constraints, corporate VPN, etc.).
+      placeholder: "Things you tried (e.g., downgrade vite to v6, use --legacy-peer-deps, clean node_modules)."
