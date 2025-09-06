@@ -12,10 +12,10 @@ body:
     id: duplicates
     attributes:
       label: Duplicate check
-        required: true
       description: Please confirm you searched existing issues and the FAQs.
       options:
         - label: "I searched existing issues and discussions"
+      required: true
 
   - type: textarea
     id: summary
