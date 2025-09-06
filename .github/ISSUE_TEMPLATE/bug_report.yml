@@ -15,7 +15,7 @@ body:
       description: Please confirm you searched existing issues and the FAQs.
       options:
         - label: "I searched existing issues and discussions"
-      required: true
+          required: true
 
   - type: textarea
     id: summary
