@@ -1,6 +1,5 @@
 name: "Bug report (WebSpatial program)"
 description: File a reproducible bug encountered while building with WebSpatial
-title: ""
 labels: ["bug", "needs-triage"]
 assignees: []
 body:
