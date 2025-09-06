@@ -12,10 +12,11 @@ body:
     id: duplicates
     attributes:
       label: Duplicate check
-      description: Please confirm you searched existing issues and the FAQ.
+      description: Please confirm you searched existing issues and the FAQs.
       options:
         - label: "I searched existing issues and discussions"
-          required: true
+      validations:
+        required: true
 
   - type: textarea
     id: summary
@@ -43,18 +44,11 @@ body:
     validations:
       required: true
 
-  - type: input
-    id: repro_link
-    attributes:
-      label: Minimal reproduction link
-      description: Public repo/branch or zip link (ideally <100 lines diff).
-      placeholder: "https://github.com/<repo>/tree/<branch>"
-
   - type: textarea
     id: steps
     attributes:
       label: Steps to reproduce
-      description: Exact steps to reproduce the bug. Attaching screenshots, console errors is insisted.
+      description: Exact steps to reproduce the bug are required. Attaching screenshots and console logs is highly recommended for faster resolution.
     validations:
       required: true
 
@@ -62,6 +56,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
+      description: Describe what you thought would happen if everything worked correctly.
     validations:
       required: true
 
@@ -69,6 +64,7 @@ body:
     id: actual
     attributes:
       label: Actual behavior
+      description: Describe what really happened, including error messages or incorrect output.
     validations:
       required: true
 
@@ -92,7 +88,7 @@ body:
     id: os
     attributes:
       label: Host OS & version
-      placeholder: "macOS 14.6.1 (Apple Silicon or Intel?)"
+      placeholder: "macOS 14.6.1 (Apple Silicon or Intel)"
     validations:
       required: true
 
@@ -100,26 +96,17 @@ body:
     id: node
     attributes:
       label: Node.js version
-      placeholder: "node -v (e.g., 20.19.0 or 23.x)"
+      placeholder: "Node -v (eg. 20.19.0)"
     validations:
       required: true
 
   - type: textarea
     id: packages
     attributes:
-      label: WebSpatial & tooling versions
-      description: Paste outputs so maintainers can reproduce exactly.
-      placeholder: |
-        "npm ls @webspatial/react-sdk @webspatial/core-sdk @webspatial/vite-plugin @webspatial/builder @webspatial/platform-visionos
-        npm ls vite vite-plugin-html react react-dom"
-    validations:
-      required: true
-
-  - type: input
-    id: xcode
-    attributes:
-      label: Xcode & visionOS SDK versions
-      placeholder: "Xcode 16.x (build ####), visionOS SDK 2.x"
+      label: WebSpatial & Vite versions
+      description: Paste terminal output of following command.
+      placeholder: cd your-project-folder/
+        npm ls @webspatial/react-sdk @webspatial/core-sdk @webspatial/vite-plugin @webspatial/builder @webspatial/platform-visionos vite vite-plugin-html react react-dom
     validations:
       required: true
 
@@ -131,7 +118,7 @@ body:
       options:
         - "Vision Pro device"
         - "VisionOS Simulator"
-        - "Desktop browser (2D)"
+        - "Web Browser (2D)"
     validations:
       required: true
 
@@ -139,4 +126,3 @@ body:
     id: workarounds
     attributes:
       label: Tried workarounds
-      placeholder: "Things you tried (e.g., downgrade vite to v6, use --legacy-peer-deps, clean node_modules)."
