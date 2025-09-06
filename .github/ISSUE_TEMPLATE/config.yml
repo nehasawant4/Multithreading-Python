@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: WebSpatial Cohort FAQ
+    url: https://example.com/faq
+    about: Read this first—common setup pitfalls and version notes.
+  - name: Program Discord/Slack
+    url: https://example.com/community
+    about: Quick questions, non-bugs, and peer support.
