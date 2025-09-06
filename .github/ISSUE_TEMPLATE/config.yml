@@ -1,4 +1,4 @@
-blank_issues_enabled: true
+blank_issues_enabled: false
 contact_links:
   - name: WebSpatial Cohort FAQ
     url: https://example.com/faq

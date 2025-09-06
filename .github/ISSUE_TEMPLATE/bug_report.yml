@@ -8,7 +8,7 @@ body:
     attributes:
       value: |
         Thanks for filing a bug! Please fill in all required fields so triage is fast.
-        _Tip:_ attach a minimal repro repo or codesandbox link if possible.
+        Tip: attach a minimal repro repo or branch if possible.
 
   - type: checkboxes
     id: duplicates
@@ -16,7 +16,7 @@ body:
       label: Duplicate check
       description: Please confirm you searched existing issues and the FAQ.
       options:
-        - label: I searched existing issues and discussions
+        - label: "I searched existing issues and discussions"
           required: true
 
   - type: textarea
@@ -35,14 +35,14 @@ body:
       description: Select all that apply.
       multiple: true
       options:
-        - @webspatial/react-sdk
-        - @webspatial/core-sdk
-        - @webspatial/vite-plugin
-        - @webspatial/builder (run/build)
-        - @webspatial/platform-visionos
-        - Example templates / starter
-        - Docs / Guides
-        - Other (describe below)
+        - "@webspatial/react-sdk"
+        - "@webspatial/core-sdk"
+        - "@webspatial/vite-plugin"
+        - "@webspatial/builder (run/build)"
+        - "@webspatial/platform-visionos"
+        - "Example templates / starter"
+        - "Docs / Guides"
+        - "Other (describe below)"
     validations:
       required: true
 
@@ -52,8 +52,6 @@ body:
       label: Minimal reproduction link
       description: Public repo/branch or zip link (ideally <100 lines diff).
       placeholder: "https://github.com/<org>/<repo>/tree/<branch>"
-    validations:
-      required: false
 
   - type: textarea
     id: steps
@@ -61,10 +59,10 @@ body:
       label: Steps to reproduce
       description: Exact steps from a clean checkout.
       value: |
-        1. `git clone ... && npm ci`
-        2. `npm run dev` (normal) and `XR_ENV=avp npm run dev:xr`
-        3. `npx webspatial-builder run --base=http://localhost:5173`
-        4. Open VisionOS Simulator → …
+        1. git clone ... && npm ci
+        2. npm run dev   (and)   XR_ENV=avp npm run dev:xr
+        3. npx webspatial-builder run --base=http://localhost:5173
+        4. Open VisionOS Simulator …
         5. Observe crash / error …
     validations:
       required: true
@@ -73,7 +71,7 @@ body:
     id: expected
     attributes:
       label: Expected behavior
-      placeholder: "App should install and open a 2D window; model renders…"
+      placeholder: "App installs and opens a 2D window; model renders…"
     validations:
       required: true
 
@@ -90,22 +88,22 @@ body:
     attributes:
       label: Severity
       options:
-        - S0 – Blocking (cannot proceed / demo-blocker)
-        - S1 – Major (workaround exists but risky)
-        - S2 – Minor (annoying; no data loss)
-        - S3 – Cosmetic / Docs
+        - "S0 - Blocking (cannot proceed / demo-blocker)"
+        - "S1 - Major (workaround exists but risky)"
+        - "S2 - Minor (annoying; no data loss)"
+        - "S3 - Cosmetic / Docs"
     validations:
       required: true
 
   - type: markdown
     attributes:
-      value: "### Environment (please be precise)"
+      value: "### Environment"
 
   - type: input
     id: os
     attributes:
       label: Host OS & version
-      placeholder: "macOS 14.6.1 (Apple Silicon / Intel?)"
+      placeholder: "macOS 14.6.1 (Apple Silicon or Intel?)"
     validations:
       required: true
 
@@ -125,15 +123,14 @@ body:
       value: |
         npm ls @webspatial/react-sdk @webspatial/core-sdk @webspatial/vite-plugin @webspatial/builder @webspatial/platform-visionos
         npm ls vite vite-plugin-html react react-dom
-      render: shell
     validations:
       required: true
 
   - type: input
     id: xcode
     attributes:
-      label: Xcode & VisionOS SDK versions
-      placeholder: "Xcode 16.0 (build ####), visionOS SDK 2.x"
+      label: Xcode & visionOS SDK versions
+      placeholder: "Xcode 16.x (build ####), visionOS SDK 2.x"
     validations:
       required: true
 
@@ -141,12 +138,12 @@ body:
     id: target
     attributes:
       label: Run target
-      options:
-        - Vision Pro device
-        - VisionOS Simulator
-        - Desktop browser (2D)
-        - Mobile Safari / PWA
       multiple: true
+      options:
+        - "Vision Pro device"
+        - "VisionOS Simulator"
+        - "Desktop browser (2D)"
+        - "Mobile Safari / PWA"
     validations:
       required: true
 
@@ -155,16 +152,12 @@ body:
     attributes:
       label: Simulator version (if applicable)
       placeholder: "visionOS Simulator 2.x (device profile)"
-    validations:
-      required: false
 
   - type: input
     id: browser
     attributes:
       label: Browser & version (if 2D)
       placeholder: "Safari TP r###, Chrome 140, etc."
-    validations:
-      required: false
 
   - type: textarea
     id: env_vars
@@ -175,15 +168,12 @@ body:
         XR_ENV=avp
         __XR_ENV_BASE__=http://localhost:5174
         npx webspatial-builder run --base=http://localhost:5173
-    validations:
-      required: false
 
   - type: textarea
     id: logs
     attributes:
       label: Logs & stack traces
       description: Paste terminal output (builder, dev server) and console logs.
-      render: shell
     validations:
       required: true
 
@@ -192,21 +182,15 @@ body:
     attributes:
       label: Screenshots / screen recordings
       description: Drag-and-drop images or short videos (Simulator/device captures).
-    validations:
-      required: false
 
   - type: textarea
     id: workarounds
     attributes:
       label: Tried workarounds
       description: Things you tried (e.g., downgrade vite to v6, use --legacy-peer-deps, clean node_modules).
-    validations:
-      required: false
 
   - type: textarea
     id: extra
     attributes:
       label: Extra context
       description: Anything else that might help (network constraints, corporate VPN, etc.).
-    validations:
-      required: false
